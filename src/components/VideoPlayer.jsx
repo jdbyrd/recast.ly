@@ -1,6 +1,7 @@
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props); 
+    console.log('video', this.props);
   }
   render() {
     return (
