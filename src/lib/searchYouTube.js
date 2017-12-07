@@ -1,9 +1,10 @@
 var searchYouTube = (options, callback) => {
+  options.q = options.query || options.q;
+  options.maxResults = options.max || 5;
   options.videoEmbeddable = 'true';
   options.type = 'video';
   options.part = 'snippet';
-  options.maxResults = options.maxResults || 5;
-  options.key = window.YOUTUBE_API_KEY;
+  options.key = options.key || window.YOUTUBE_API_KEY;
   let result;
   
   $.ajax({

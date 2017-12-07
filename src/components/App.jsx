@@ -14,14 +14,14 @@ class App extends React.Component {
   }
   
   componentDidMount() {
-    searchYouTube({q: 'Rick Roll'}, (videos) => {
+    searchYouTube({query: 'Rick Roll', max: 10}, (videos) => {
       this.setState({videos: videos, selected: videos[0]});
       console.log(this.state.videos);
     });    
   }
   
   onEnter (string) {
-    searchYouTube({q: string}, (videos) => {
+    searchYouTube({query: string, max: 10}, (videos) => {
       this.setState({videos: videos, selected: videos[0]});
     }); 
   }
