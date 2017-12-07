@@ -15,10 +15,8 @@ class VideoListEntry extends React.Component {
         </div>
       </div>
     );  
-  }
-  
+  }  
 }
-
 
 // var VideoListEntry = () => (
 //   <div className="video-list-entry media">

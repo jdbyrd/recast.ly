@@ -1,7 +1,6 @@
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props); 
-    console.log('video', this.props);
   }
   render() {
     return (
@@ -15,13 +14,8 @@ class VideoPlayer extends React.Component {
         </div>
       </div>
     );
-  }
-  
-  
-  
+  }  
 }
-
-
 
 // var VideoPlayer = () => (
 //   <div className="video-player">
