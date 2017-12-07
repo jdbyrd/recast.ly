@@ -3,8 +3,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videos: this.props.collection,
-      selected: this.props.collection[0]
+      videos: window.exampleVideoData,
+      selected: window.exampleVideoData[0]
     };
     this.clicked = this.clicked.bind(this);
     this.onEnter = this.onEnter.bind(this);
@@ -14,14 +14,14 @@ class App extends React.Component {
   }
   
   componentDidMount() {
-    searchYouTube({query: 'Rick Roll', max: 10}, (videos) => {
+    this.props.searchYouTube({query: 'Rick Roll', max: 10}, (videos) => {
       this.setState({videos: videos, selected: videos[0]});
       console.log(this.state.videos);
     });    
   }
   
   onEnter (string) {
-    searchYouTube({query: string, max: 10}, (videos) => {
+    this.props.searchYouTube({query: string, max: 10}, (videos) => {
       this.setState({videos: videos, selected: videos[0]});
     }); 
   }
