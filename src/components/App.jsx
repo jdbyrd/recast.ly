@@ -43,6 +43,7 @@ class App extends React.Component {
         <div className="row">
           <div className="col-md-7">
             <VideoPlayer video = {this.state.selected} />
+            <div className="col-md-4 commentBox"><p>Hello World</p></div>
           </div>
           <div className="col-md-5">
             <VideoList videos = {this.state.videos} clicked={this.clicked} />
