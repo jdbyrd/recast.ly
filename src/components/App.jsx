@@ -3,10 +3,27 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      videos: this.props.collection,
       selected: this.props.collection[0]
     };
     this.clicked = this.clicked.bind(this);
+    this.onEnter = this.onEnter.bind(this);
     //this.changeSelected = this.changeSelected.bind(this);
+    let results;
+    
+  }
+  
+  componentDidMount() {
+    searchYouTube({q: 'Rick Roll'}, (videos) => {
+      this.setState({videos: videos, selected: videos[0]});
+      console.log(this.state.videos);
+    });    
+  }
+  
+  onEnter (string) {
+    searchYouTube({q: string}, (videos) => {
+      this.setState({videos: videos, selected: videos[0]});
+    }); 
   }
   
   clicked (string) {
@@ -20,7 +37,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search />
+            <Search onEnter={this.onEnter} />
           </div>
         </nav>
         <div className="row">
@@ -28,7 +45,7 @@ class App extends React.Component {
             <VideoPlayer video = {this.state.selected} />
           </div>
           <div className="col-md-5">
-            <VideoList videos = {this.props.collection} clicked={this.clicked} />
+            <VideoList videos = {this.state.videos} clicked={this.clicked} />
           </div>
         </div>
       </div>
